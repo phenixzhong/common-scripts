@@ -4,7 +4,7 @@
 source_file_path=/home/root/source_file
 ngx_pagespeed_version=1.11.33.3 # https://github.com/pagespeed/ngx_pagespeed/releases
 nginx_version=1.11.4            # http://nginx.org/en/download.html
-openssl_version=1_0_2h          # https://www.openssl.org/source/
+openssl_version=1_1_0           # https://github.com/openssl/openssl/releases
 
 sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang vim -y
 
