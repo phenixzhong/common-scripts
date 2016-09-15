@@ -1,10 +1,10 @@
 #!/bin/sh
 #20160915 reorganize
 
-source_file_path=/home/phenix/source_file
-ngx_pagespeed_version=1.11.33.3
-nginx_version=1.11.3
-openssl_version=1_0_2h
+source_file_path=/home/root/source_file
+ngx_pagespeed_version=1.11.33.3 # https://github.com/pagespeed/ngx_pagespeed/releases
+nginx_version=1.11.4            # http://nginx.org/en/download.html
+openssl_version=1_0_2h          # https://www.openssl.org/source/
 
 sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang vim -y
 
