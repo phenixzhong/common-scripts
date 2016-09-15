@@ -25,7 +25,7 @@ generate_db_info(){
 }
 
 install_lamp(){
-  apt-get -y install vim apache2 python
+  apt-get -y install apache2
   a2enmod rewrite
   touch ./temp_file_for_db_install.txt
   echo  "mysql-server mysql-server/root_password password ${db_root_password}" > ./temp_file_for_db_install.txt
@@ -45,8 +45,13 @@ set_db(){
             GRANT ALL PRIVILEGES ON ${db_name}.* TO '${db_user_name}'@'localhost';"
 }
 
+install_common_software(){
+  apt-get -y install vim  python  build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang letencrypt 
+}
+
 
 set_system
 generate_db_info
 install_lamp
 set_db
+install_common_software
