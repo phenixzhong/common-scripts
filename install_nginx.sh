@@ -5,6 +5,7 @@ source_file_path=/home/root/source_file
 ngx_pagespeed_version=1.11.33.3 # https://github.com/pagespeed/ngx_pagespeed/releases
 nginx_version=1.11.4            # http://nginx.org/en/download.html
 openssl_version=1_1_0           # https://github.com/openssl/openssl/releases
+nginx_ct_version=1.3.0
 
 sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang vim -y
 
@@ -17,7 +18,7 @@ wget https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}.tar.gz
 tar -xzvf ${ngx_pagespeed_version}.tar.gz
 
 cd ${source_file_path}
-wget -O nginx-ct.zip https://github.com/grahamedgecombe/nginx-ct/archive/v1.0.0.zip
+wget -O nginx-ct.zip https://github.com/grahamedgecombe/nginx-ct/archive/v${nginx_ct_version}.zip
 unzip nginx-ct.zip
 
 wget -O openssl.zip https://github.com/openssl/openssl/archive/OpenSSL_${openssl_version}.zip
@@ -44,7 +45,7 @@ cd nginx-${nginx_version}/
 --with-http_v2_module \
 --with-http_ssl_module \
 --add-module=${source_file_path}/ngx_pagespeed-release-${ngx_pagespeed_version}-beta \
---add-module=${source_file_path}/nginx-ct-1.0.0
+--add-module=${source_file_path}/nginx-ct-{nginx_ct_version}
 
 make
 make install
