@@ -45,7 +45,7 @@ cd nginx-${nginx_version}/
 --with-http_v2_module \
 --with-http_ssl_module \
 --add-module=${source_file_path}/ngx_pagespeed-release-${ngx_pagespeed_version}-beta \
---add-module=${source_file_path}/nginx-ct-{nginx_ct_version}
+--add-module=${source_file_path}/nginx-ct-${nginx_ct_version}
 
 make
 make install
