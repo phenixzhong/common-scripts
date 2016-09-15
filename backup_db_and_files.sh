@@ -19,7 +19,7 @@ backup_db_and_files(){
   db_name=`cat "${file_record_db_info}" | awk '{if(NR==2) print $1;}'`
   db_user=`cat "${file_record_db_info}" | awk '{if(NR==3) print $1;}'`
   db_password=`cat "${file_record_db_info}" | awk '{if(NR==4) print $1;}'`
-  gcs_bucker_name=`cat "${file_name_record_path_to_backup}" | awk '{if(NR==1) print $1;}'`
+  gcs_bucker_name=`cat "${file_record_path_to_backup}" | awk '{if(NR==1) print $1;}'`
 
   echo "${gcs_bucker_name}" >> "${local_backup_path}/temp/${file_name_record_path_to_backup}"
   cat ${file_name_record_path_to_backup} | awk 'NR>1' | while read line
