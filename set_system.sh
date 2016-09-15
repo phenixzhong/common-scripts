@@ -24,7 +24,7 @@ generate_db_info(){
   db_user_password=`cat "${file_record_db_info}" | awk '{if(NR==4) print $1;}'`
 }
 
-intall_lamp(){
+install_lamp(){
   apt-get -y install vim apache2 python
   a2enmod rewrite
   touch ./temp_file_for_db_install.txt
