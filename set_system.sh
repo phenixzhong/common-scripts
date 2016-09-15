@@ -37,7 +37,7 @@ intall_lamp(){
   apt-get -y install php libapache2-mod-php php-mcrypt
 }
 
-set_database(){
+set_db(){
   mysql -uroot \
         -p${db_root_password} \
         -e "CREATE DATABASE ${db_name}; \
@@ -47,6 +47,6 @@ set_database(){
 
 
 set_system
-generate_database_info
+generate_db_info
 install_lamp
-set_database
+set_db
