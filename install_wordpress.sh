@@ -44,7 +44,7 @@ generate_wordpress_config_file(){
   echo ${more_set} >> ${wordpress_config_file}
 }
 
-install_wordpress(){
+download_wordpress(){
   wget https://wordpress.org/latest.tar.gz
   tar zxf latest.tar.gz -C /var/www/
   cp -r -f /var/www/wordpress/* /var/www/html/
@@ -55,4 +55,4 @@ install_wordpress(){
 }
 
 generate_wordpress_config_file
-install_wordpress
+download_wordpress
