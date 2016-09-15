@@ -1,4 +1,6 @@
 #!/bin/bash
+#20160915 rename fuction and variable
+
 generate_wordpress_config_file(){
   file_record_db_info="mysql.txt"
   wordpress_config_file="/var/www/wp-config.php"
@@ -47,6 +49,7 @@ install_wordpress(){
   tar zxf latest.tar.gz -C /var/www/
   cp -r -f /var/www/wordpress/* /var/www/html/
   rm -r -f /var/www/wordpress
+  rm /var/www/html/index.html
   rm latest.tar.gz
   chown -R www-data:www-data /var/www/html
 }
