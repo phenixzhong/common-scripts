@@ -41,3 +41,4 @@ backup_db_and_files(){
   export PATH=${PATH}:/root/gsutil
   gsutil -m rsync -d -r "${local_backup_path}" "${gcs_bucker_name}"
 }
+backup_db_and_files
