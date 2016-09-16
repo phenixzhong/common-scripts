@@ -1,7 +1,7 @@
 #!/bin/sh
 
 backup_db_and_files(){
-  local_backup_path="/var/backup"
+  local_backup_path="/var/backups/local_backup"
   file_record_path_to_backup="/root/info.txt"
   file_name_record_path_to_backup="info.txt"
   file_record_db_info="mysql.txt"
