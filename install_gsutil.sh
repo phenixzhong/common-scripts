@@ -2,14 +2,11 @@
 #install gsutil
 
 install_gsutil(){
-  wget https://storage.googleapis.com/pub/gsutil.tar.gz
-  tar xfz gsutil.tar.gz -C /root/
-  rm gsutil.tar.gz
-  echo "export PATH=\${PATH}:\$HOME/gsutil" >> /root/.bashrc
-  export PATH=${PATH}:/root/gsutil
-
-  gsutil update
-  gsutil config
+  export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+  echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  apt-get update && apt-get install google-cloud-sdk
+  gcloud init
 }
 
 install_gsutil
