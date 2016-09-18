@@ -46,7 +46,7 @@ set_db(){
 }
 
 install_common_software(){
-  apt-get -y install vim  python  build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang letencrypt 
+  apt-get -y install vim  python  build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang golang letencrypt 
 }
 
 
