@@ -1,5 +1,6 @@
 #!/bin/sh
 #20160915 reorganize
+#20160925 update soft version
 
 install_nginx(){
   source_file_path=/var/source_file
