@@ -4,7 +4,7 @@
 generate_wordpress_config_file(){
   file_record_db_info="mysql.txt"
   wordpress_config_file="/var/www/wp-config.php"
-  wordpress_content_path="/var/www/content"
+  wordpress_content_path="/var/www/html/content"
 
   name=('DB_NAME'
         'DB_USER'
@@ -48,7 +48,7 @@ download_wordpress(){
   wget https://wordpress.org/latest.tar.gz
   tar zxf latest.tar.gz -C /var/www/
   cp -r -f /var/www/wordpress/* /var/www/html/
-  cp -r -f /var/www/html/wp-content /var/www/content
+  cp -r -f /var/www/html/wp-content /var/www/html/content
   rm -r -f /var/www/wordpress
   rm /var/www/html/index.html
   rm latest.tar.gz
