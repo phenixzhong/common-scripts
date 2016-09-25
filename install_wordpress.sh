@@ -48,7 +48,7 @@ download_wordpress(){
   wget https://wordpress.org/latest.tar.gz
   tar zxf latest.tar.gz -C /var/www/
   cp -r -f /var/www/wordpress/* /var/www/html/
-  cp -r -f /var/www/wordpress/wp-content /var/www/wordpress/content
+  cp -r -f /var/www/html/wp-content /var/www/content
   rm -r -f /var/www/wordpress
   rm /var/www/html/index.html
   rm latest.tar.gz
