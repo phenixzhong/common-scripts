@@ -6,7 +6,7 @@ install_nginx(){
   source_file_path=/var/source_file
   ngx_pagespeed_version=1.11.33.4 # https://github.com/pagespeed/ngx_pagespeed/releases
   nginx_version=1.11.4            # http://nginx.org/en/download.html
-  openssl_version=1_1_0a           # https://github.com/openssl/openssl/releases
+  openssl_version=1_1_0b           # https://github.com/openssl/openssl/releases
   nginx_ct_version=1.3.1          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
 
   mkdir -p ${source_file_path}
