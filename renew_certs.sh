@@ -13,6 +13,8 @@ cp -f /etc/letsencrypt/live/hust.co/privkey.pem /root/www/ssl/
 
 rm /root/www/ssl/sct/*
 /root/tools/ct-submit/ct-submit ct.googleapis.com/aviator </root/www/ssl/fullchain.pem >/root/www/ssl/sct/aviator.sct
+/root/tools/ct-submit/ct-submit ct.googleapis.com/rocketeer </root/www/ssl/fullchain.pem >/root/www/ssl/sct/rocketeer.sct
+/root/tools/ct-submit/ct-submit ct.googleapis.com/pilot </root/www/ssl/fullchain.pem >/root/www/ssl/sct/pilot.sct
 
 nginx -s reload
 }
