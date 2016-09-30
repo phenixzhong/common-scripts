@@ -31,7 +31,7 @@ install_lamp(){
   echo  "mysql-server mysql-server/root_password password ${db_root_password}" > ./temp_file_for_db_install.txt
   echo  "mysql-server mysql-server/root_password_again password ${db_root_password}" >> ./temp_file_for_db_install.txt
   debconf-set-selections ./temp_file_for_db_install.txt
-  apt-get -y install mysql-server php-mysql
+  apt-get -y install mysql-server php-mysql php-xml php-xmlrpc
   rm ./temp_file_for_db_install.txt
   mysql_install_db
   apt-get -y install php libapache2-mod-php php-mcrypt
@@ -46,7 +46,7 @@ set_db(){
 }
 
 install_common_software(){
-  apt-get -y install vim  python  build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang golang letsencrypt git
+  apt-get -y install vim  python  build-essential zlib1g-dev libpcre3 libpcre3-dev unzip clang golang letsencrypt git 
 }
 
 
