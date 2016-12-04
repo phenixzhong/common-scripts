@@ -11,6 +11,7 @@ install_nginx(){
   openssl_version=1_1_0c           # https://github.com/openssl/openssl/releases
   nginx_ct_version=1.3.2          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
 
+  rm -r ${source_file_path}
   mkdir -p ${source_file_path}
   cd ${source_file_path}
   wget https://github.com/pagespeed/ngx_pagespeed/archive/release-${ngx_pagespeed_version}-beta.zip -O release-${ngx_pagespeed_version}-beta.zip
