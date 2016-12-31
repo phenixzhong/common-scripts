@@ -3,18 +3,19 @@
 #20160925 update soft version
 #20161113 update openssl and nginx version
 #20161204 update
+#20161231 update
 
 install_nginx(){
   source_file_path=/var/source_file
-  ngx_pagespeed_version=1.11.33.4 # https://github.com/pagespeed/ngx_pagespeed/releases
-  nginx_version=1.11.6            # http://nginx.org/en/download.html
+  ngx_pagespeed_version=1.12.34.2 # https://github.com/pagespeed/ngx_pagespeed/releases
+  nginx_version=1.11.8            # http://nginx.org/en/download.html
   openssl_version=1_1_0c           # https://github.com/openssl/openssl/releases
   nginx_ct_version=1.3.2          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
 
   rm -r ${source_file_path}
   mkdir -p ${source_file_path}
   cd ${source_file_path}
-  wget https://github.com/pagespeed/ngx_pagespeed/archive/release-${ngx_pagespeed_version}-beta.zip -O release-${ngx_pagespeed_version}-beta.zip
+  wget https://github.com/pagespeed/ngx_pagespeed/archive/v${ngx_pagespeed_version}-beta.zip -O release-${ngx_pagespeed_version}-beta.zip
   unzip release-${ngx_pagespeed_version}-beta.zip
   cd ngx_pagespeed-release-${ngx_pagespeed_version}-beta/
   wget https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}.tar.gz
