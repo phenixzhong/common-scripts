@@ -50,7 +50,7 @@ install_nginx(){
   --with-http_sub_module \
   --with-http_v2_module \
   --with-http_ssl_module \
-  --add-module=${source_file_path}/ngx_pagespeed-release-${ngx_pagespeed_version}-beta \
+  --add-module=${source_file_path}/ngx_pagespeed-${NPS_VERSION}-beta \
   --add-module=${source_file_path}/nginx-ct-${nginx_ct_version}
 
   make
