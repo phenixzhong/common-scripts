@@ -15,11 +15,13 @@ install_nginx(){
   rm -r ${source_file_path}
   mkdir -p ${source_file_path}
   cd ${source_file_path}
-  wget https://github.com/pagespeed/ngx_pagespeed/archive/v${ngx_pagespeed_version}-beta.zip -O release-${ngx_pagespeed_version}-beta.zip
-  unzip release-${ngx_pagespeed_version}-beta.zip
-  cd ngx_pagespeed-release-${ngx_pagespeed_version}-beta/
-  wget https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}.tar.gz
-  tar -xzvf ${ngx_pagespeed_version}.tar.gz
+  wget https://github.com/pagespeed/ngx_pagespeed/archive/v${ngx_pagespeed_version}-beta.zip -O v${ngx_pagespeed_version}-beta.zip
+  unzip v${ngx_pagespeed_version}-beta.zip
+  cd ngx_pagespeed-${ngx_pagespeed_version}-beta/
+  psol_url=https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}.tar.gz
+  [ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
+  wget ${psol_url}
+  tar -xzvf $(basename ${psol_url})
 
   cd ${source_file_path}
   wget -O nginx-ct.zip https://github.com/grahamedgecombe/nginx-ct/archive/v${nginx_ct_version}.zip
