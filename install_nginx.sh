@@ -8,7 +8,7 @@
 
 install_nginx(){
   source_file_path=/var/source_file
-  ngx_pagespeed_version=1.12.34.2 # https://github.com/pagespeed/ngx_pagespeed/releases
+  ngx_pagespeed_version=1.11.33.4 # https://github.com/pagespeed/ngx_pagespeed/releases
   nginx_version=1.11.10            # http://nginx.org/en/download.html
   openssl_version=1_1_0e           # https://github.com/openssl/openssl/releases
   nginx_ct_version=1.3.2          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
