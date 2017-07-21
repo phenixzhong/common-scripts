@@ -20,7 +20,7 @@ install_nginx(){
   wget https://github.com/pagespeed/ngx_pagespeed/archive/v${ngx_pagespeed_version}-stable.zip -O v${ngx_pagespeed_version}-stable.zip
   unzip v${ngx_pagespeed_version}-stable.zip
   cd ngx_pagespeed-${ngx_pagespeed_version}-stable/
-  psol_url=https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}.tar.gz
+  psol_url=https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}-x64.tar.gz
   [ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
   wget ${psol_url}
   tar -xzvf $(basename ${psol_url})
