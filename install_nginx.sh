@@ -5,20 +5,21 @@
 #20161204 update
 #20161231 update
 #20170304 update
+#20170721 update
 
 install_nginx(){
   source_file_path=/var/source_file
-  ngx_pagespeed_version=1.11.33.4 # https://github.com/pagespeed/ngx_pagespeed/releases
-  nginx_version=1.11.10            # http://nginx.org/en/download.html
-  openssl_version=1_1_0e           # https://github.com/openssl/openssl/releases
+  ngx_pagespeed_version=1.12.34.2 # https://github.com/pagespeed/ngx_pagespeed/releases
+  nginx_version=1.13.3            # http://nginx.org/en/download.html
+  openssl_version=1_1_0f           # https://github.com/openssl/openssl/releases
   nginx_ct_version=1.3.2          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
 
   rm -r ${source_file_path}
   mkdir -p ${source_file_path}
   cd ${source_file_path}
-  wget https://github.com/pagespeed/ngx_pagespeed/archive/v${ngx_pagespeed_version}-beta.zip -O v${ngx_pagespeed_version}-beta.zip
-  unzip v${ngx_pagespeed_version}-beta.zip
-  cd ngx_pagespeed-${ngx_pagespeed_version}-beta/
+  wget https://github.com/pagespeed/ngx_pagespeed/archive/v${ngx_pagespeed_version}-stable.zip -O v${ngx_pagespeed_version}-stable.zip
+  unzip v${ngx_pagespeed_version}-stable.zip
+  cd ngx_pagespeed-${ngx_pagespeed_version}-stable/
   psol_url=https://dl.google.com/dl/page-speed/psol/${ngx_pagespeed_version}.tar.gz
   [ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
   wget ${psol_url}
@@ -51,7 +52,7 @@ install_nginx(){
   --with-http_sub_module \
   --with-http_v2_module \
   --with-http_ssl_module \
-  --add-module=${source_file_path}/ngx_pagespeed-${ngx_pagespeed_version}-beta \
+  --add-module=${source_file_path}/ngx_pagespeed-${ngx_pagespeed_version}-stable \
   --add-module=${source_file_path}/nginx-ct-${nginx_ct_version}
 
   make
