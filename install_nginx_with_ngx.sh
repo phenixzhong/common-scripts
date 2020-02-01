@@ -17,7 +17,11 @@ install_nginx(){
   wget -O openssl.zip https://github.com/openssl/openssl/archive/OpenSSL_${openssl_version}.zip
   unzip openssl.zip
   
-  bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
+  git clone git@github.com:pagespeed/ngx_pagespeed.git
+  cd ngx_pagespeed/
+  git checkout <branch>
+
+  scripts/build_ngx_pagespeed.sh \
   -n ${NGINX_VERSION} -v latest  -a '\
   --prefix=/etc/nginx \
   --sbin-path=/usr/sbin/nginx \
