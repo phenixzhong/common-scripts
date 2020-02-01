@@ -27,7 +27,7 @@ install_nginx(){
   --pid-path=/var/run/nginx.pid \
   --lock-path=/var/run/nginx.lock \
   --with-cc=/usr/bin/clang \
-  --with-openssl=${source_file_path}/openssl-OpenSSL_1_1_1d \
+  --with-openssl=/var/source_file/openssl-OpenSSL_1_1_1d \
   --user=www-data --group=www-data \
   --with-ipv6 \
   --with-http_sub_module \
