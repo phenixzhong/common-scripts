@@ -27,13 +27,12 @@ install_nginx(){
   --pid-path=/var/run/nginx.pid \
   --lock-path=/var/run/nginx.lock \
   --with-cc=/usr/bin/clang \
-  --with-openssl=${source_file_path}/openssl-OpenSSL_${openssl_version} \
+  --with-openssl=${source_file_path}/openssl-OpenSSL_1_1_1d \
   --user=www-data --group=www-data \
   --with-ipv6 \
   --with-http_sub_module \
   --with-http_v2_module \
-  --with-http_ssl_module \
-  --add-module=${source_file_path}/nginx-ct-${nginx_ct_version}'
+  --with-http_ssl_module'
   }
   
  install_nginx
