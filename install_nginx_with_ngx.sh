@@ -19,8 +19,7 @@ install_nginx(){
   
   git clone git@github.com:pagespeed/ngx_pagespeed.git
   cd ngx_pagespeed/
-  scripts/build_ngx_pagespeed.sh \
-  -n ${NGINX_VERSION} -v latest  -a '--prefix=/etc/nginx \
+  scripts/build_ngx_pagespeed.sh -n ${NGINX_VERSION} -v latest  -a '--prefix=/etc/nginx \
   --sbin-path=/usr/sbin/nginx \
   --modules-path=/etc/nginx/modules \
   --conf-path=/etc/nginx/nginx.conf \
