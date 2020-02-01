@@ -9,23 +9,24 @@
 
 install_nginx(){
   source_file_path=/var/source_file
-  ngx_pagespeed_version=1.13.35.2-stable  # https://github.com/pagespeed/ngx_pagespeed/releases
-  nginx_version=1.17.8            # http://nginx.org/en/download.html
+  NPS_VERSION=1.13.35.2-stable  # https://github.com/pagespeed/ngx_pagespeed/releases
+  NGINX_VERSION=1.17.8            # http://nginx.org/en/download.html
   openssl_version=1_1_1d           # https://github.com/openssl/openssl/releases
   nginx_ct_version=1.3.2          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
 
   rm -r ${source_file_path}
   mkdir -p ${source_file_path}
   cd ${source_file_path}
-  wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${ngx_pagespeed_version}.zip
+  wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
   unzip v${ngx_pagespeed_version}.zip
-  cd ngx_pagespeed-${ngx_pagespeed_version}/
-  # NPS_RELEASE_NUMBER=${ngx_pagespeed_version/beta/}
-  NPS_RELEASE_NUMBER=${ngx_pagespeed_version}
+  nps_dir=$(find . -name "*pagespeed-ngx-${NPS_VERSION}" -type d)
+  cd "$nps_dir"
+  NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
+  NPS_RELEASE_NUMBER=${NPS_VERSION/stable/}
   psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
   [ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
   wget ${psol_url}
-  tar -xzvf $(basename ${psol_url})
+  tar -xzvf $(basename ${psol_url})  # extracts to psol/
 
   cd ${source_file_path}
   wget -O nginx-ct.zip https://github.com/grahamedgecombe/nginx-ct/archive/v${nginx_ct_version}.zip
@@ -34,9 +35,9 @@ install_nginx(){
   wget -O openssl.zip https://github.com/openssl/openssl/archive/OpenSSL_${openssl_version}.zip
   unzip openssl.zip
 
-  wget http://nginx.org/download/nginx-${nginx_version}.tar.gz
-  tar -xvzf nginx-${nginx_version}.tar.gz
-  cd nginx-${nginx_version}/
+  wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+  tar -xvzf nginx-${NGINX_VERSION}.tar.gz
+  cd nginx-${NGINX_VERSION}/
 
   ./configure \
   --prefix=/etc/nginx \
@@ -54,7 +55,7 @@ install_nginx(){
   --with-http_sub_module \
   --with-http_v2_module \
   --with-http_ssl_module \
-  --add-module=${source_file_path}/ngx_pagespeed-${ngx_pagespeed_version} \
+  --add-module=${source_file_path}/$nps_dir \
   --add-module=${source_file_path}/nginx-ct-${nginx_ct_version}
 
   make
