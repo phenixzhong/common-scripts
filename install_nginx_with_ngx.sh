@@ -18,7 +18,7 @@ install_nginx(){
   unzip openssl.zip
   
   wget https://ngxpagespeed.com/install
-  bash install -n ${NGINX_VERSION} -v latest  -a '--prefix=/etc/nginx \
+  bash install -n ${NGINX_VERSION} -v latest-stable  -a '--prefix=/etc/nginx \
   --sbin-path=/usr/sbin/nginx \
   --modules-path=/etc/nginx/modules \
   --conf-path=/etc/nginx/nginx.conf \
