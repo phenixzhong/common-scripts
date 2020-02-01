@@ -6,6 +6,7 @@
 #20161231 update
 #20170304 update
 #20170721 update
+#20200201 update
 
 install_nginx(){
   source_file_path=/var/source_file
