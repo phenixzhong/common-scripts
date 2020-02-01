@@ -19,7 +19,7 @@ install_nginx(){
   mkdir -p ${source_file_path}
   cd ${source_file_path}
   wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
-  unzip v${ngx_pagespeed_version}.zip
+  unzip v${NPS_VERSION}.zip
   nps_dir=$(find . -name "*pagespeed-ngx-${NPS_VERSION}" -type d)
   cd "$nps_dir"
   NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
