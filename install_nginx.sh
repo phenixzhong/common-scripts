@@ -10,27 +10,12 @@
 
 install_nginx(){
   source_file_path=/var/source_file
-# NPS_VERSION=1.13.35.2-stable  # https://github.com/pagespeed/ngx_pagespeed/releases
   NGINX_VERSION=1.17.8            # http://nginx.org/en/download.html
   openssl_version=1_1_1d           # https://github.com/openssl/openssl/releases
-  nginx_ct_version=1.3.2          # https://github.com/grahamedgecombe/nginx-ct/releases/latest
-
+ 
   rm -r ${source_file_path}
   mkdir -p ${source_file_path}
   cd ${source_file_path}
-#  wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
-#  unzip v${NPS_VERSION}.zip
-#  nps_dir=$(find . -name "*pagespeed-ngx-${NPS_VERSION}" -type d)
-#  cd "$nps_dir"
-#  NPS_RELEASE_NUMBER=${NPS_VERSION}/stable/
-#  psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
-#  [ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
-#  wget ${psol_url}
-#  tar -xzvf $(basename ${psol_url})  # extracts to psol/
-#
-#  cd ${source_file_path}
-  wget -O nginx-ct.zip https://github.com/grahamedgecombe/nginx-ct/archive/v${nginx_ct_version}.zip
-  unzip nginx-ct.zip
 
   wget -O openssl.zip https://github.com/openssl/openssl/archive/OpenSSL_${openssl_version}.zip
   unzip openssl.zip
@@ -54,9 +39,7 @@ install_nginx(){
   --with-ipv6 \
   --with-http_sub_module \
   --with-http_v2_module \
-  --with-http_ssl_module \
-# --add-module=${source_file_path}/$nps_dir \
-  --add-module=${source_file_path}/nginx-ct-${nginx_ct_version}
+  --with-http_ssl_module
 
   make
   make install
