@@ -3,6 +3,8 @@
 restore(){
   file_record_backup_path="info.txt"
   file_record_db_info="mysql.txt"
+  
+  gsutil cp gs://phenixzhong/lastest/lastest.tar.gz ./
 
   mkdir ./temp
   tar zxf lastest.tar.gz -C  ./temp/
