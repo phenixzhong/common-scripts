@@ -13,4 +13,5 @@ curl https://setup.insolo.net/install_gsutil.sh | sh
 step 4
 curl https://setup.insolo.net/install_wordpress.sh | sh
 
-
+step 4
+curl https://setup.insolo.net/restore_form_backup_files.sh | sh
