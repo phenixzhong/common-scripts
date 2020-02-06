@@ -1,4 +1,4 @@
-#shell scrips for common use
+shell scrips for common use
 
 step 1 curl https://setup.insolo.net/set_system.sh | sh
 
@@ -8,4 +8,4 @@ step 3 curl https://setup.insolo.net/install_gsutil.sh | sh
 
 step 4 curl https://setup.insolo.net/install_wordpress.sh | sh
 
-step 4 curl https://setup.insolo.net/restore_form_backup_files.sh | sh
+step 5 curl https://setup.insolo.net/restore_form_backup_files.sh | sh
