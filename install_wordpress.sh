@@ -4,7 +4,7 @@
 generate_wordpress_config_file(){
   file_record_db_info="mysql.txt"
   wordpress_config_file="/var/www/wp-config.php"
-  wordpress_content_path="/var/www/html/content"
+  wordpress_content_path="/var/www/content"
 
   name=('DB_NAME'
         'DB_USER'
