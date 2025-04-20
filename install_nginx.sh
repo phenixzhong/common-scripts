@@ -17,7 +17,7 @@ install_nginx(){
   mkdir -p ${source_file_path}
   cd ${source_file_path}
 
-  wget -O Openssl.zip https://github.com/openssl/openssl/archive/refs/tags/openssl-${openssl_version}.zip
+  wget -O Openssl.zip https://github.com/openssl/openssl/archive/refs/tags/openssl-3.5.0.zip
   unzip OpenSSL.zip
 
   wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
