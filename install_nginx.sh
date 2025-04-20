@@ -10,8 +10,8 @@
 
 install_nginx(){
   source_file_path=/var/source_file
-  NGINX_VERSION=1.17.8            # http://nginx.org/en/download.html
-  openssl_version=1_1_1d           # https://github.com/openssl/openssl/releases
+  NGINX_VERSION=1.26.3            # http://nginx.org/en/download.html
+  openssl_version=3_5_0           # https://github.com/openssl/openssl/releases
  
   rm -r ${source_file_path}
   mkdir -p ${source_file_path}
