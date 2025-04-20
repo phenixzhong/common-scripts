@@ -13,15 +13,15 @@ install_nginx(){
   NGINX_VERSION=1.26.3            # http://nginx.org/en/download.html
   openssl_version=3.5.0           # https://github.com/openssl/openssl/releases
  
-  #rm -r ${source_file_path}
-  #mkdir -p ${source_file_path}
+  rm -r ${source_file_path}
+  mkdir -p ${source_file_path}
   cd ${source_file_path}
 
-  #wget -O Openssl.zip https://github.com/openssl/openssl/archive/refs/tags/openssl-3.5.0.zip
-  #unzip OpenSSL.zip
+  wget -O OpenSSL.zip https://github.com/openssl/openssl/archive/refs/tags/openssl-3.5.0.zip
+  unzip OpenSSL.zip
 
-  #wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
-  #tar -xvzf nginx-${NGINX_VERSION}.tar.gz
+  wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+  tar -xvzf nginx-${NGINX_VERSION}.tar.gz
   cd nginx-${NGINX_VERSION}/
 
   ./configure \
